@@ -1,1 +1,450 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8f9fc">
+<meta name="description" content="SYNTRA — automatyzacja AI, inteligentni asystenci i cyfrowe procesy dla nowoczesnych zespołów." data-meta="description">
+<title>SYNTRA — AI, które rozwija biznes</title>
+<style>
+:root{--ink:#191a2b;--muted:#686d80;--line:#e7e9f2;--bg:#f8f9fc;--purple:#6657e8;--lav:#eeeaff;--mint:#e7f8f2;--blue:#eaf3ff;--shadow:0 18px 55px #1d1f4212;--r:22px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+body.lock{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+.top{position:sticky;top:0;z-index:20;background:#f8f9fce8;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:900;letter-spacing:.15em;display:flex;align-items:center;gap:10px}
+.mark{width:31px;height:31px;display:grid;place-items:center;border-radius:10px;color:#fff;background:linear-gradient(145deg,#9185ff,#5746d8);letter-spacing:0}
+.links,.actions{display:flex;align-items:center;gap:24px}
+.links{color:#555b70;font-size:.92rem}
+.links a:hover{color:var(--purple)}
+.lang{border:1px solid var(--line);background:#fff;border-radius:11px;padding:9px;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:13px;padding:13px 18px;font-weight:800;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.primary{background:var(--purple);color:#fff;box-shadow:0 8px 20px #6657e833}
+.secondary{background:#fff;border:1px solid var(--line)}
+.small{padding:10px 14px;font-size:.88rem}
+.toggle{display:none;background:#fff;border:1px solid var(--line);border-radius:11px;padding:9px 12px;font-size:1.2rem}
+.hero{padding:78px 0 64px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:45px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);background:#fff;border-radius:30px;padding:8px 12px;font-size:.8rem;font-weight:750}
+.dot{width:8px;height:8px;border-radius:50%;background:#38c894;box-shadow:0 0 0 4px #e4f8f1}
+.hero h1{font-size:clamp(2.8rem,6vw,4.7rem);letter-spacing:-.065em;line-height:1.03;margin:22px 0}
+.gradient{background:linear-gradient(100deg,#6657e8,#8c6ee8 60%,#35a7d4);background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:1.08rem;max-width:560px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.note{color:#777c8f;font-size:.82rem;margin-top:20px}
+.visual{min-height:410px;position:relative;display:grid;place-items:center}
+.orb{position:absolute;width:330px;height:330px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff,#e9e5ff 45%,#dcefff)}
+.dashboard{z-index:1;position:relative;width:min(430px,100%);padding:22px;background:#ffffffed;border:1px solid white;border-radius:22px;box-shadow:0 28px 70px #3f378526;transform:rotate(-2deg)}
+.dash-head{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:14px;font-size:.82rem}
+.status{background:#e5f8f0;color:#18815f;padding:4px 9px;border-radius:20px;font-weight:800}
+.dashboard h3{margin:18px 0 3px}
+.sub{color:var(--muted);font-size:.82rem}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.metric{background:#f7f7ff;border-radius:14px;padding:14px}
+.metric span,.metric small{display:block;font-size:.75rem;color:var(--muted)}
+.metric strong{display:block;font-size:1.6rem}
+.metric small{color:#219b74}
+.chart{margin-top:14px;border:1px solid var(--line);padding:14px;border-radius:14px}
+.bars{height:65px;display:flex;align-items:end;gap:7px;margin-top:12px}
+.bars i{flex:1;border-radius:5px 5px 1px 1px;background:linear-gradient(#aaa0ff,#6657e8)}
+.float{position:absolute;z-index:2;display:flex;align-items:center;gap:9px;background:white;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:14px;padding:12px;font-size:.8rem;font-weight:800}
+.float b{display:grid;place-items:center;width:33px;height:33px;border-radius:10px;background:var(--mint)}
+.f1{top:45px;right:0}
+.f2{bottom:38px;left:0}
+.f2 b{background:var(--lav)}
+.trust{padding:20px 0 55px;text-align:center;color:#9296a5;font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.logos{display:flex;justify-content:center;gap:clamp(22px,5vw,60px);flex-wrap:wrap;margin-top:20px;font-size:1rem;letter-spacing:-.02em;color:#858a9c}
+.section{padding:78px 0}
+.white{background:white}
+.heading{text-align:center;max-width:690px;margin:0 auto 40px}
+.kicker{font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:var(--purple);font-weight:900}
+.heading h2,.copy h2{font-size:clamp(2rem,4.5vw,3.1rem);line-height:1.12;letter-spacing:-.055em;margin:12px 0}
+.heading p,.copy p{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;transition:.2s}
+.white .card{background:#fcfcff}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#d6d0ff}
+.icon{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:var(--lav);font-size:1.35rem;margin-bottom:20px}
+.card:nth-child(2) .icon{background:var(--mint)}
+.card:nth-child(3) .icon{background:var(--blue)}
+.card h3{margin:0 0 8px;font-size:1.13rem}
+.card p{margin:0 0 18px;color:var(--muted);font-size:.91rem}
+.text-link{color:var(--purple);font-weight:800;font-size:.88rem}
+.workflow{display:grid;grid-template-columns:.85fr 1.15fr;gap:55px;align-items:center}
+.steps{display:grid;gap:13px}
+.step{display:flex;gap:15px;background:#fff;border:1px solid var(--line);border-radius:17px;padding:18px}
+.num{flex:0 0 39px;height:39px;display:grid;place-items:center;background:var(--lav);color:var(--purple);border-radius:12px;font-weight:900}
+.step h3{font-size:1rem;margin:0 0 4px}
+.step p{font-size:.88rem;margin:0;color:var(--muted)}
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.price-card{position:relative;background:white;border:1px solid var(--line);border-radius:22px;padding:25px;display:flex;flex-direction:column}
+.price-card.featured{border:2px solid var(--purple);box-shadow:0 16px 45px #6657e81f}
+.popular{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--purple);color:#fff;border-radius:30px;padding:4px 12px;font-size:.72rem;font-weight:900;white-space:nowrap}
+.price-name{font-weight:900}
+.price-desc{font-size:.85rem;color:var(--muted);min-height:45px}
+.price{font-size:2.1rem;font-weight:900;letter-spacing:-.05em}
+.price span{font-size:.8rem;color:var(--muted);font-weight:500;letter-spacing:0}
+.price-note{font-size:.78rem;color:var(--muted);margin:3px 0 18px}
+.features{list-style:none;padding:0;margin:0 0 23px;display:grid;gap:10px;flex:1;font-size:.87rem;color:#50556a}
+.features li:before{content:'✓';color:#219b74;font-weight:900;margin-right:9px}
+.price-card .btn{width:100%}
+.faq{max-width:800px;margin:auto}
+details.faq-item{border-bottom:1px solid var(--line);padding:18px 0}
+details.faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;font-weight:800;color:var(--ink);padding:4px 0}
+details.faq-item summary::-webkit-details-marker{display:none}
+details.faq-item summary:focus-visible{outline:2px solid var(--purple);outline-offset:4px;border-radius:6px}
+.faq-a{color:var(--muted);font-size:.92rem;padding:10px 25px 0 0}
+details.faq-item[open] .plus{transform:rotate(45deg)}
+.plus{font-size:1.3rem;color:var(--purple);transition:transform .2s;display:inline-block}
+.cta{padding:35px 0 80px}
+.cta-panel{background:linear-gradient(115deg,#25213f,#5146a7 60%,#7668e8);color:white;padding:48px;border-radius:27px;display:flex;justify-content:space-between;align-items:center;gap:25px}
+.cta-panel h2{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.1;letter-spacing:-.05em;margin:0 0 12px}
+.cta-panel p{color:#e4e1ff;max-width:600px;margin:0}
+.cta-panel .btn{background:#fff;color:#30285f;white-space:nowrap}
+footer{padding:25px 0 35px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
+.footer-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.modal{display:none;position:fixed;inset:0;z-index:100;background:#17172b88;padding:20px;align-items:center;justify-content:center}
+.modal.open{display:flex}
+.dialog{background:#fff;border-radius:22px;width:min(520px,100%);max-height:90vh;overflow:auto;padding:25px;box-shadow:0 25px 90px #0003}
+.dialog-head{display:flex;justify-content:space-between;align-items:start;gap:15px}
+.dialog h2{margin:0 0 7px;letter-spacing:-.04em}
+.dialog p{color:var(--muted);font-size:.9rem}
+.close{border:1px solid var(--line);background:#fff;border-radius:10px;font-size:1.25rem;width:38px;height:38px}
+.field{display:grid;gap:6px;margin:13px 0}
+.field label{font-weight:750;font-size:.86rem}
+.field input,.field select,.field textarea{width:100%;border:1px solid #dfe2ec;border-radius:11px;padding:12px;background:#fff;color:var(--ink)}
+.field textarea{min-height:95px;resize:vertical}
+.privacy{font-size:.76rem!important}
+.toast{position:fixed;z-index:120;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#201d3d;color:#fff;border-radius:13px;padding:13px 17px;box-shadow:var(--shadow);transition:.25s;width:max-content;max-width:calc(100% - 30px);font-size:.9rem}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:850px){.links{gap:14px}.hero-grid{grid-template-columns:1fr;gap:15px}.hero-copy{max-width:680px}.visual{min-height:390px}.workflow{grid-template-columns:1fr;gap:25px}.cards,.prices{grid-template-columns:1fr 1fr}.price-card:last-child{grid-column:1/-1}.cta-panel{padding:35px;align-items:flex-start;flex-direction:column}}
+@media(max-width:620px){.wrap{width:min(100% - 28px,1120px)}nav{height:66px}.toggle{display:block}.actions{gap:8px}.nav-cta{display:none}.links{display:none;position:absolute;top:100%;left:0;right:0;padding:18px 20px 22px;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}.links.open{display:flex}.links a{padding:12px 4px}.hero{padding:55px 0 40px}.hero h1{font-size:clamp(2.6rem,12vw,4rem)}.hero-grid{gap:5px}.visual{min-height:330px}.orb{width:260px;height:260px}.dashboard{padding:15px}.float{font-size:.7rem;padding:9px}.f1{top:15px}.f2{bottom:12px}.section{padding:58px 0}.cards,.prices{grid-template-columns:1fr}.price-card:last-child{grid-column:auto}.heading{margin-bottom:30px}.card{padding:22px}.cta{padding:15px 0 55px}.cta-panel{padding:28px 23px}.footer-row{flex-direction:column}.buttons .btn{flex:1}.trust{padding-bottom:35px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><nav aria-label="Main navigation">
+<a class="brand" href="#home"><span class="mark" aria-hidden="true">S</span>SYNTRA</a>
+<div class="links" id="navLinks"><a href="#services" data-i18n="navServices">Usługi</a><a href="#process" data-i18n="navProcess">Jak działamy</a><a href="#pricing" data-i18n="navPricing">Pakiety</a><a href="#faq" data-i18n="navFaq">FAQ</a></div>
+<div class="actions">
+<select class="lang" id="languageSelect" aria-label="Language"><option value="pl">PL</option><option value="en">EN</option><option value="ru">RU</option></select>
+<button class="btn primary small nav-cta" data-open-modal data-i18n="navCta">Porozmawiajmy</button>
+<button class="toggle" id="menuToggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+</div>
+</nav></div></header>
+<main id="home">
+<section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow"><span class="dot" aria-hidden="true"></span><span data-i18n="eyebrow">AI, które pracuje razem z Tobą</span></div><h1 data-i18n="heroTitle">Mniej rutyny.<br><span class="gradient">Więcej możliwości.</span></h1><p class="lead" data-i18n="heroCopy">Projektujemy praktyczne rozwiązania AI, które pomagają zespołom pracować sprawniej, obsługiwać klientów i odzyskiwać czas.</p><div class="buttons"><button class="btn primary" data-open-modal data-i18n="heroCta">Omówmy projekt ↗</button><a class="btn secondary" href="#services" data-i18n="heroSecondary">Poznaj usługi ↓</a></div><div class="note" data-i18n="heroNote">Przemyślana automatyzacja. Realne potrzeby. Jasne zasady.</div></div>
+<div class="visual" role="img" aria-label="Illustrative AI dashboard"><div class="orb" aria-hidden="true"></div><div class="dashboard"><div class="dash-head"><span data-i18n="dashWorkspace">Przestrzeń robocza</span><span class="status" data-i18n="dashStatus">● Demo aktywne</span></div><h3 data-i18n="dashTitle">Przegląd automatyzacji</h3><div class="sub" data-i18n="dashSub">Przykładowy tydzień pracy zespołu</div><div class="metrics"><div class="metric"><span data-i18n="metricTasks">Zautomatyzowane zadania</span><strong>248</strong><small>↗ 18.4%</small></div><div class="metric"><span data-i18n="metricHours">Odzyskany czas</span><strong>32 h</strong><small data-i18n="metricWeek">w tym tygodniu</small></div></div><div class="chart"><b data-i18n="chartTitle">Aktywność procesów</b><div class="bars" aria-hidden="true"><i style="height:35%"></i><i style="height:52%"></i><i style="height:43%"></i><i style="height:68%"></i><i style="height:57%"></i><i style="height:82%"></i><i style="height:73%"></i><i style="height:96%"></i><i style="height:78%"></i></div></div></div><div class="float f1"><b aria-hidden="true">✦</b><span data-i18n="floatOne">Asystent AI gotowy</span></div><div class="float f2"><b aria-hidden="true">↗</b><span data-i18n="floatTwo">Mniej pracy ręcznej</span></div></div></div></section>
+<div class="trust"><div class="wrap"><span data-i18n="trustLabel">Technologia do codziennej pracy</span><div class="logos"><span>OpenAI</span><span>NOTION</span><span>MAKE</span><span>zapier</span><span>HUBSPOT</span></div></div></div>
+<section class="section white" id="services"><div class="wrap"><div class="heading"><div class="kicker" data-i18n="servicesKicker">Czym się zajmujemy</div><h2 data-i18n="servicesTitle">AI do rozwiązywania realnych problemów</h2><p data-i18n="servicesIntro">Od pierwszego pomysłu po wdrożenie — łączymy technologie i procesy, które naprawdę mają znaczenie dla Twojej firmy.</p></div><div class="cards">
+<article class="card"><div class="icon" aria-hidden="true">✦</div><h3 data-i18n="service1Title">Inteligentni asystenci</h3><p data-i18n="service1Copy">Asystenci AI odpowiadają na pytania, wspierają zespół i porządkują wiedzę firmową.</p><a class="text-link" href="#contact" data-service="assistant"><span data-i18n="learnMore">Dowiedz się więcej</span> <span aria-hidden="true">→</span></a></article>
+<article class="card"><div class="icon" aria-hidden="true">⤴</div><h3 data-i18n="service2Title">Automatyzacja procesów</h3><p data-i18n="service2Copy">Łączymy narzędzia i ograniczamy powtarzalne zadania — od obsługi zapytań po raporty.</p><a class="text-link" href="#contact" data-service="automation"><span data-i18n="learnMore">Dowiedz się więcej</span> <span aria-hidden="true">→</span></a></article>
+<article class="card"><div class="icon" aria-hidden="true">⌘</div><h3 data-i18n="service3Title">Rozwiązania na miarę</h3><p data-i18n="service3Copy">Tworzymy prototypy i integracje AI dopasowane do zadań, danych i narzędzi Twojej firmy.</p><a class="text-link" href="#contact" data-service="custom"><span data-i18n="learnMore">Dowiedz się więcej</span> <span aria-hidden="true">→</span></a></article>
+</div></div></section>
+<section class="section" id="process"><div class="wrap workflow"><div class="copy"><div class="kicker" data-i18n="processKicker">Prosto i konkretnie</div><h2 data-i18n="processTitle">Od problemu do działającego rozwiązania</h2><p data-i18n="processCopy">Nie wdrażamy AI tylko dlatego, że jest modne. Najpierw poznajemy proces, potem dobieramy narzędzia i sprawdzamy efekty.</p><button class="btn primary" data-open-modal data-i18n="processCta">Opowiedz o wyzwaniu ↗</button></div><div class="steps"><div class="step"><div class="num" aria-hidden="true">01</div><div><h3 data-i18n="step1Title">Poznajemy potrzeby</h3><p data-i18n="step1Copy">Rozmawiamy o celach, zadaniach i trudnościach w codziennej pracy.</p></div></div><div class="step"><div class="num" aria-hidden="true">02</div><div><h3 data-i18n="step2Title">Projektujemy rozwiązanie</h3><p data-i18n="step2Copy">Dobieramy podejście, zakres, priorytety i kryteria sukcesu.</p></div></div><div class="step"><div class="num" aria-hidden="true">03</div><div><h3 data-i18n="step3Title">Wdrażamy i ulepszamy</h3><p data-i18n="step3Copy">Testujemy, łączymy narzędzia i rozwijamy rozwiązanie na podstawie wyników.</p></div></div></div></div></section>
+<section class="section white" id="pricing"><div class="wrap"><div class="heading"><div class="kicker" data-i18n="pricingKicker">Elastyczna współpraca</div><h2 data-i18n="pricingTitle">Zacznij od tego, czego potrzebujesz</h2><p data-i18n="pricingIntro">Pakiety pokazują możliwe formaty współpracy. Ostateczny zakres i cena zależą od projektu.</p></div><div class="prices">
+<article class="price-card"><div class="price-name">Discovery</div><p class="price-desc" data-i18n="plan1Copy">Pierwszy krok, by znaleźć dobre zastosowania AI.</p><div class="price" data-i18n="planPrice">Na <span>zapytanie</span></div><p class="price-note" data-i18n="plan1Note">Etap startowy</p><ul class="features"><li data-i18n="plan1a">Analiza procesu</li><li data-i18n="plan1b">Lista możliwości i priorytetów</li><li data-i18n="plan1c">Plan kolejnych kroków</li></ul><button class="btn secondary" data-plan="Discovery" data-i18n="planCta">Wybierz pakiet</button></article>
+<article class="price-card featured"><span class="popular" data-i18n="popular">Najczęściej wybierany</span><div class="price-name">Build</div><p class="price-desc" data-i18n="plan2Copy">Dla zespołów gotowych przetestować konkretne rozwiązanie.</p><div class="price" data-i18n="planPrice">Na <span>zapytanie</span></div><p class="price-note" data-i18n="plan2Note">Projekt pilotażowy</p><ul class="features"><li data-i18n="plan2a">Prototyp lub asystent AI</li><li data-i18n="plan2b">Integracja wybranych narzędzi</li><li data-i18n="plan2c">Testy i poprawki</li></ul><button class="btn primary" data-plan="Build" data-i18n="planCta">Wybierz pakiet</button></article>
+<article class="price-card"><div class="price-name">Scale</div><p class="price-desc" data-i18n="plan3Copy">Dla firm rozwijających kilka połączonych procesów.</p><div class="price" data-i18n="planPrice">Na <span>zapytanie</span></div><p class="price-note" data-i18n="plan3Note">Rozwój długoterminowy</p><ul class="features"><li data-i18n="plan3a">Wiele procesów i integracji</li><li data-i18n="plan3b">Dokumentacja i przekazanie</li><li data-i18n="plan3c">Plan dalszego rozwoju</li></ul><button class="btn secondary" data-plan="Scale" data-i18n="planCta">Wybierz pakiet</button></article>
+</div></div></section>
+<section class="section" id="faq"><div class="wrap"><div class="heading"><div class="kicker" data-i18n="faqKicker">Pytania i odpowiedzi</div><h2 data-i18n="faqTitle">Zanim zaczniemy</h2><p data-i18n="faqIntro">Krótkie odpowiedzi na częste pytania.</p></div><div class="faq">
+<details class="faq-item"><summary><span data-i18n="faqQ1">Czy potrzebuję doświadczenia z AI?</span><span class="plus" aria-hidden="true">＋</span></summary><div class="faq-a" data-i18n="faqA1">Nie. Zaczynamy od Twoich celów i procesów, a rozwiązanie wyjaśniamy prostym językiem.</div></details>
+<details class="faq-item"><summary><span data-i18n="faqQ2">Czy można połączyć AI z moimi narzędziami?</span><span class="plus" aria-hidden="true">＋</span></summary><div class="faq-a" data-i18n="faqA2">Często tak. Zależy to od dostępnych integracji, uprawnień i jakości danych — sprawdzamy to na początku.</div></details>
+<details class="faq-item"><summary><span data-i18n="faqQ3">Ile trwa wdrożenie?</span><span class="plus" aria-hidden="true">＋</span></summary><div class="faq-a" data-i18n="faqA3">Prosty prototyp zwykle wymaga mniej czasu niż złożona integracja. Po rozmowie określamy realny zakres i terminy.</div></details>
+<details class="faq-item"><summary><span data-i18n="faqQ4">Czy formularz naprawdę wysyła wiadomość?</span><span class="plus" aria-hidden="true">＋</span></summary><div class="faq-a" data-i18n="faqA4">Nie — to demonstracyjny projekt portfolio. Formularz pokazuje potwierdzenie w przeglądarce, ale nie wysyła ani nie zapisuje danych na serwerze.</div></details>
+</div></div></section>
+<section class="cta" id="contact"><div class="wrap"><div class="cta-panel"><div><h2 data-i18n="ctaTitle">Sprawdźmy, co AI może zrobić dla Twojej firmy.</h2><p data-i18n="ctaCopy">Opowiedz o jednym procesie, który chcesz uprościć. Od tego możemy zacząć.</p></div><button class="btn" data-open-modal data-i18n="ctaButton">Omówmy projekt ↗</button></div></div></section>
+</main>
+<footer><div class="wrap footer-row"><a class="brand" href="#home"><span class="mark" aria-hidden="true">S</span>SYNTRA</a><span data-i18n="footerCopy">© 2026 SYNTRA. Koncepcyjny projekt portfolio.</span></div></footer>
+<div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="dialog" id="dialogBox"><div class="dialog-head"><div><h2 id="modalTitle" data-i18n="modalTitle">Porozmawiajmy o projekcie</h2><p data-i18n="modalIntro">Wypełnij formularz demo. Zobaczysz potwierdzenie, ale wiadomość nie zostanie wysłana.</p></div><button class="close" id="modalClose" aria-label="Close" data-i18n-aria="closeLabel">×</button></div>
+<form id="contactForm" novalidate><div class="field"><label for="name" data-i18n="formName">Imię</label><input id="name" name="name" autocomplete="name" required data-placeholder="namePlaceholder" placeholder="Twoje imię"></div><div class="field"><label for="email" data-i18n="formEmail">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required data-placeholder="emailPlaceholder" placeholder="you@company.com"></div><div class="field"><label for="topic" data-i18n="formTopic">Czego potrzebujesz?</label><select id="topic" name="topic"><option value="" disabled selected data-i18n="topicPlaceholder">— Wybierz temat —</option><option value="assistant" data-i18n="topicAssistant">Asystent AI</option><option value="automation" data-i18n="topicAutomation">Automatyzacja procesów</option><option value="custom" data-i18n="topicCustom">Rozwiązanie na miarę</option><option value="other" data-i18n="topicOther">Jeszcze nie wiem</option></select></div><div class="field"><label for="message" data-i18n="formMessage">Krótko opisz pomysł</label><textarea id="message" name="message" required data-placeholder="messagePlaceholder" placeholder="Jaki proces chcesz usprawnić?"></textarea></div><button class="btn primary" type="submit" style="width:100%" data-i18n="formSubmit">Pokaż potwierdzenie</button><p class="privacy" data-i18n="formPrivacy">Demo portfolio: dane nie są wysyłane ani zapisywane.</p></form></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(() => {
+'use strict';
+const T = {
+pl:{
+navServices:'Usługi',navProcess:'Jak działamy',navPricing:'Pakiety',navFaq:'FAQ',navCta:'Porozmawiajmy',
+eyebrow:'AI, które pracuje razem z Tobą',heroTitle:'Mniej rutyny.<br><span class="gradient">Więcej możliwości.</span>',
+heroCopy:'Projektujemy praktyczne rozwiązania AI, które pomagają zespołom pracować sprawniej, obsługiwać klientów i odzyskiwać czas.',
+heroCta:'Omówmy projekt ↗',heroSecondary:'Poznaj usługi ↓',heroNote:'Przemyślana automatyzacja. Realne potrzeby. Jasne zasady.',
+dashWorkspace:'Przestrzeń robocza',dashStatus:'● Demo aktywne',dashTitle:'Przegląd automatyzacji',dashSub:'Przykładowy tydzień pracy zespołu',
+metricTasks:'Zautomatyzowane zadania',metricHours:'Odzyskany czas',metricWeek:'w tym tygodniu',chartTitle:'Aktywność procesów',
+floatOne:'Asystent AI gotowy',floatTwo:'Mniej pracy ręcznej',trustLabel:'Technologia do codziennej pracy',
+servicesKicker:'Czym się zajmujemy',servicesTitle:'AI do rozwiązywania realnych problemów',servicesIntro:'Od pierwszego pomysłu po wdrożenie — łączymy technologie i procesy, które naprawdę mają znaczenie dla Twojej firmy.',
+service1Title:'Inteligentni asystenci',service1Copy:'Asystenci AI odpowiadają na pytania, wspierają zespół i porządkują wiedzę firmową.',
+service2Title:'Automatyzacja procesów',service2Copy:'Łączymy narzędzia i ograniczamy powtarzalne zadania — od obsługi zapytań po raporty.',
+service3Title:'Rozwiązania na miarę',service3Copy:'Tworzymy prototypy i integracje AI dopasowane do zadań, danych i narzędzi Twojej firmy.',
+learnMore:'Dowiedz się więcej',processKicker:'Prosto i konkretnie',processTitle:'Od problemu do działającego rozwiązania',
+processCopy:'Nie wdrażamy AI tylko dlatego, że jest modne. Najpierw poznajemy proces, potem dobieramy narzędzia i sprawdzamy efekty.',
+processCta:'Opowiedz o wyzwaniu ↗',step1Title:'Poznajemy potrzeby',step1Copy:'Rozmawiamy o celach, zadaniach i trudnościach w codziennej pracy.',
+step2Title:'Projektujemy rozwiązanie',step2Copy:'Dobieramy podejście, zakres, priorytety i kryteria sukcesu.',
+step3Title:'Wdrażamy i ulepszamy',step3Copy:'Testujemy, łączymy narzędzia i rozwijamy rozwiązanie na podstawie wyników.',
+pricingKicker:'Elastyczna współpraca',pricingTitle:'Zacznij od tego, czego potrzebujesz',pricingIntro:'Pakiety pokazują możliwe formaty współpracy. Ostateczny zakres i cena zależą od projektu.',
+plan1Copy:'Pierwszy krok, by znaleźć dobre zastosowania AI.',planPrice:'Na <span>zapytanie</span>',plan1Note:'Etap startowy',
+plan1a:'Analiza procesu',plan1b:'Lista możliwości i priorytetów',plan1c:'Plan kolejnych kroków',
+plan2Copy:'Dla zespołów gotowych przetestować konkretne rozwiązanie.',plan2Note:'Projekt pilotażowy',plan2a:'Prototyp lub asystent AI',plan2b:'Integracja wybranych narzędzi',plan2c:'Testy i poprawki',
+plan3Copy:'Dla firm rozwijających kilka połączonych procesów.',plan3Note:'Rozwój długoterminowy',plan3a:'Wiele procesów i integracji',plan3b:'Dokumentacja i przekazanie',plan3c:'Plan dalszego rozwoju',
+planCta:'Wybierz pakiet',popular:'Najczęściej wybierany',faqKicker:'Pytania i odpowiedzi',faqTitle:'Zanim zaczniemy',faqIntro:'Krótkie odpowiedzi na częste pytania.',
+faqQ1:'Czy potrzebuję doświadczenia z AI?',faqA1:'Nie. Zaczynamy od Twoich celów i procesów, a rozwiązanie wyjaśniamy prostym językiem.',
+faqQ2:'Czy można połączyć AI z moimi narzędziami?',faqA2:'Często tak. Zależy to od dostępnych integracji, uprawnień i jakości danych — sprawdzamy to na początku.',
+faqQ3:'Ile trwa wdrożenie?',faqA3:'Prosty prototyp zwykle wymaga mniej czasu niż złożona integracja. Po rozmowie określamy realny zakres i terminy.',
+faqQ4:'Czy formularz naprawdę wysyła wiadomość?',faqA4:'Nie — to demonstracyjny projekt portfolio. Formularz pokazuje potwierdzenie w przeglądarce, ale nie wysyła ani nie zapisuje danych na serwerze.',
+ctaTitle:'Sprawdźmy, co AI może zrobić dla Twojej firmy.',ctaCopy:'Opowiedz o jednym procesie, który chcesz uprościć. Od tego możemy zacząć.',ctaButton:'Omówmy projekt ↗',
+footerCopy:'© 2026 SYNTRA. Koncepcyjny projekt portfolio.',modalTitle:'Porozmawiajmy o projekcie',modalIntro:'Wypełnij formularz demo. Zobaczysz potwierdzenie, ale wiadomość nie zostanie wysłana.',
+formName:'Imię',formEmail:'E-mail',formTopic:'Czego potrzebujesz?',topicPlaceholder:'— Wybierz temat —',topicAssistant:'Asystent AI',topicAutomation:'Automatyzacja procesów',topicCustom:'Rozwiązanie na miarę',topicOther:'Jeszcze nie wiem',formMessage:'Krótko opisz pomysł',formSubmit:'Pokaż potwierdzenie',formPrivacy:'Demo portfolio: dane nie są wysyłane ani zapisywane.',
+namePlaceholder:'Twoje imię',emailPlaceholder:'you@company.com',messagePlaceholder:'Jaki proces chcesz usprawnić?',
+toastSuccess:'Dziękujemy! To demo — wiadomość nie została wysłana.',toastChoose:'Wybrany pakiet: ',toastService:'Wybrany temat: ',menuOpen:'Otwórz menu',menuClose:'Zamknij menu',
+closeLabel:'Zamknij okno',langLabel:'Język',navLabel:'Nawigacja główna',requiredField:'Uzupełnij to pole.',invalidEmail:'Podaj prawidłowy adres e-mail.',
+metaDescription:'SYNTRA — automatyzacja AI, inteligentni asystenci i cyfrowe procesy dla nowoczesnych zespołów.',
+docTitle:'SYNTRA — AI, które rozwija biznes'
+},
+en:{
+navServices:'Services',navProcess:'How it works',navPricing:'Packages',navFaq:'FAQ',navCta:'Let’s talk',
+eyebrow:'AI that works alongside you',heroTitle:'Less routine.<br><span class="gradient">More possibility.</span>',
+heroCopy:'We design practical AI solutions that help teams work smarter, support customers and reclaim time.',
+heroCta:'Discuss a project ↗',heroSecondary:'Explore services ↓',heroNote:'Thoughtful automation. Real needs. Clear principles.',
+dashWorkspace:'Workspace',dashStatus:'● Demo live',dashTitle:'Automation overview',dashSub:'An example team workweek',
+metricTasks:'Tasks automated',metricHours:'Time reclaimed',metricWeek:'this week',chartTitle:'Workflow activity',
+floatOne:'AI assistant ready',floatTwo:'Less manual work',trustLabel:'Technology for everyday work',
+servicesKicker:'What we do',servicesTitle:'AI for real-world challenges',servicesIntro:'From the first idea to implementation, we connect technologies and workflows that matter to your business.',
+service1Title:'Intelligent assistants',service1Copy:'AI assistants answer questions, support your team and organize company knowledge.',
+service2Title:'Workflow automation',service2Copy:'We connect tools and reduce repetitive work, from handling inquiries to regular reports.',
+service3Title:'Custom AI solutions',service3Copy:'We design thoughtful prototypes and AI integrations around your company’s tasks, data and tools.',
+learnMore:'Learn more',processKicker:'Clear and practical',processTitle:'From problem to working solution',
+processCopy:'We do not implement AI just because it is trending. First we understand the workflow, then choose tools and evaluate results.',
+processCta:'Tell us about a challenge ↗',step1Title:'Understand your needs',step1Copy:'We discuss goals, tasks and daily work challenges.',
+step2Title:'Design the solution',step2Copy:'We define the approach, scope, priorities and success criteria.',
+step3Title:'Implement and improve',step3Copy:'We test, connect tools and refine the solution based on results.',
+pricingKicker:'Flexible engagement',pricingTitle:'Start with what you need',pricingIntro:'These packages illustrate possible ways to work together. Final scope and pricing depend on the project.',
+plan1Copy:'A first step to identify useful AI opportunities.',planPrice:'By <span>inquiry</span>',plan1Note:'Discovery phase',
+plan1a:'Workflow analysis',plan1b:'Opportunities and priorities',plan1c:'Next-step roadmap',
+plan2Copy:'For teams ready to test a focused solution.',plan2Note:'Pilot project',plan2a:'Prototype or AI assistant',plan2b:'Selected tool integrations',plan2c:'Testing and refinement',
+plan3Copy:'For companies scaling connected workflows.',plan3Note:'Long-term development',plan3a:'Multiple workflows and integrations',plan3b:'Documentation and handover',plan3c:'Ongoing development roadmap',
+planCta:'Choose package',popular:'Most popular',faqKicker:'Questions and answers',faqTitle:'Before we begin',faqIntro:'Quick answers to common questions.',
+faqQ1:'Do I need AI experience?',faqA1:'No. We start with your goals and workflows, and explain the solution in plain language.',
+faqQ2:'Can AI connect to my tools?',faqA2:'Often, yes. It depends on available integrations, permissions and data quality, which we assess first.',
+faqQ3:'How long does implementation take?',faqA3:'A simple prototype usually takes less time than a complex integration. We define a realistic scope and timeline after discussion.',
+faqQ4:'Does the form really send a message?',faqA4:'No. This is a portfolio demo. The form shows an in-browser confirmation but does not send or store data on a server.',
+ctaTitle:'Let’s explore what AI can do for your business.',ctaCopy:'Tell us about one workflow you would like to simplify. That is a good place to start.',ctaButton:'Discuss a project ↗',
+footerCopy:'© 2026 SYNTRA. Concept portfolio project.',modalTitle:'Let’s discuss your project',modalIntro:'Fill out this demo form. A confirmation will appear, but your message will not be sent.',
+formName:'Name',formEmail:'Email',formTopic:'What do you need?',topicPlaceholder:'— Choose a topic —',topicAssistant:'AI assistant',topicAutomation:'Workflow automation',topicCustom:'Custom solution',topicOther:'Not sure yet',formMessage:'Briefly describe your idea',formSubmit:'Show confirmation',formPrivacy:'Portfolio demo: data is not sent or stored.',
+namePlaceholder:'Your name',emailPlaceholder:'you@company.com',messagePlaceholder:'Which workflow would you improve?',
+toastSuccess:'Thanks! This is a demo — no message was sent.',toastChoose:'Selected package: ',toastService:'Selected topic: ',menuOpen:'Open menu',menuClose:'Close menu',
+closeLabel:'Close dialog',langLabel:'Language',navLabel:'Main navigation',requiredField:'Please fill out this field.',invalidEmail:'Please enter a valid email address.',
+metaDescription:'SYNTRA — AI automation, intelligent assistants and digital workflows for modern teams.',
+docTitle:'SYNTRA — AI that moves business forward'
+},
+ru:{
+navServices:'Услуги',navProcess:'Как работаем',navPricing:'Пакеты',navFaq:'Вопросы',navCta:'Обсудить проект',
+eyebrow:'ИИ, который работает вместе с вами',heroTitle:'Меньше рутины.<br><span class="gradient">Больше возможностей.</span>',
+heroCopy:'Создаём практичные AI-решения, которые помогают командам работать эффективнее, поддерживать клиентов и экономить время.',
+heroCta:'Обсудить проект ↗',heroSecondary:'Наши услуги ↓',heroNote:'Продуманная автоматизация. Реальные задачи. Прозрачный подход.',
+dashWorkspace:'Рабочее пространство',dashStatus:'● Демо активно',dashTitle:'Обзор автоматизации',dashSub:'Пример рабочей недели команды',
+metricTasks:'Автоматизировано задач',metricHours:'Сэкономлено времени',metricWeek:'за эту неделю',chartTitle:'Активность процессов',
+floatOne:'ИИ-ассистент готов',floatTwo:'Меньше ручной работы',trustLabel:'Технологии для повседневной работы',
+servicesKicker:'Чем занимаемся',servicesTitle:'ИИ для решения реальных задач',servicesIntro:'От первой идеи до внедрения — объединяем технологии и процессы, которые действительно важны для вашего бизнеса.',
+service1Title:'Интеллектуальные ассистенты',service1Copy:'ИИ-ассистенты отвечают на вопросы, помогают команде и упорядочивают корпоративные знания.',
+service2Title:'Автоматизация процессов',service2Copy:'Объединяем инструменты и сокращаем ручные задачи — от обработки заявок до регулярных отчётов.',
+service3Title:'Индивидуальные решения',service3Copy:'Создаём прототипы и интеграции ИИ с учётом задач, данных и инструментов вашей компании.',
+learnMore:'Подробнее',processKicker:'Просто и по делу',processTitle:'От проблемы к работающему решению',
+processCopy:'Мы не внедряем ИИ только потому, что это модно. Сначала изучаем процесс, затем выбираем инструменты и оцениваем результат.',
+processCta:'Расскажите о задаче ↗',step1Title:'Изучаем потребности',step1Copy:'Обсуждаем цели, задачи и сложности в ежедневной работе.',
+step2Title:'Проектируем решение',step2Copy:'Выбираем подход, определяем объём работ, приоритеты и критерии результата.',
+step3Title:'Внедряем и улучшаем',step3Copy:'Тестируем, подключаем инструменты и развиваем решение на основе результатов.',
+pricingKicker:'Гибкий формат работы',pricingTitle:'Начните с того, что вам нужно',pricingIntro:'Пакеты показывают возможные форматы сотрудничества. Итоговый объём и цена зависят от проекта.',
+plan1Copy:'Первый шаг, чтобы найти подходящие задачи для ИИ.',planPrice:'По <span>запросу</span>',plan1Note:'Стартовый этап',
+plan1a:'Анализ процесса',plan1b:'Список возможностей и приоритетов',plan1c:'План следующих шагов',
+plan2Copy:'Для команд, готовых протестировать конкретное решение.',plan2Note:'Пилотный проект',plan2a:'Прототип или ИИ-ассистент',plan2b:'Интеграция выбранных инструментов',plan2c:'Тестирование и доработка',
+plan3Copy:'Для компаний, развивающих несколько процессов.',plan3Note:'Долгосрочное развитие',plan3a:'Несколько процессов и интеграций',plan3b:'Документация и передача',plan3c:'План дальнейшего развития',
+planCta:'Выбрать пакет',popular:'Популярный выбор',faqKicker:'Вопросы и ответы',faqTitle:'Перед началом работы',faqIntro:'Короткие ответы на частые вопросы.',
+faqQ1:'Нужен ли опыт работы с ИИ?',faqA1:'Нет. Начинаем с ваших целей и процессов, а решение объясняем простым языком.',
+faqQ2:'Можно ли подключить ИИ к моим инструментам?',faqA2:'Часто да. Всё зависит от доступных интеграций, разрешений и качества данных — проверяем это в начале.',
+faqQ3:'Сколько занимает внедрение?',faqA3:'Простой прототип обычно требует меньше времени, чем сложная интеграция. После обсуждения определяем реалистичный объём и сроки.',
+faqQ4:'Форма действительно отправляет сообщение?',faqA4:'Нет — это демонстрационный проект портфолио. Форма показывает подтверждение в браузере, но не отправляет и не хранит данные на сервере.',
+ctaTitle:'Посмотрим, что ИИ может сделать для вашего бизнеса.',ctaCopy:'Расскажите об одном процессе, который хотите упростить. С этого можно начать.',ctaButton:'Обсудить проект',
+footerCopy:'© 2026 SYNTRA. Концептуальный проект портфолио.',modalTitle:'Обсудим ваш проект',modalIntro:'Заполните демонстрационную форму. Появится подтверждение, но сообщение не будет отправлено.',
+formName:'Имя',formEmail:'Электронная почта',formTopic:'Что вас интересует?',topicPlaceholder:'— Выберите тему —',topicAssistant:'ИИ-ассистент',topicAutomation:'Автоматизация процессов',topicCustom:'Индивидуальное решение',topicOther:'Пока не знаю',formMessage:'Кратко опишите идею',formSubmit:'Показать подтверждение',formPrivacy:'Демо портфолио: данные не отправляются и не сохраняются.',
+namePlaceholder:'Ваше имя',emailPlaceholder:'you@company.com',messagePlaceholder:'Какой процесс вы хотите улучшить?',
+toastSuccess:'Спасибо! Это демо — сообщение не отправлено.',toastChoose:'Выбран пакет: ',toastService:'Выбрана тема: ',menuOpen:'Открыть меню',menuClose:'Закрыть меню',
+closeLabel:'Закрыть окно',langLabel:'Язык',navLabel:'Основная навигация',requiredField:'Заполните это поле.',invalidEmail:'Введите корректный адрес электронной почты.',
+metaDescription:'SYNTRA — автоматизация с ИИ, интеллектуальные ассистенты и цифровые процессы для современных команд.',
+docTitle:'SYNTRA — ИИ для развития бизнеса'
+}
+};
+const lang=document.getElementById('languageSelect');
+const modal=document.getElementById('contactModal');
+const dialogBox=document.getElementById('dialogBox');
+const form=document.getElementById('contactForm');
+const toast=document.getElementById('toast');
+const menu=document.getElementById('navLinks');
+const toggle=document.getElementById('menuToggle');
+const topicSelect=document.getElementById('topic');
+const messageField=document.getElementById('message');
+const nameField=document.getElementById('name');
+const emailField=document.getElementById('email');
+const metaDesc=document.querySelector('meta[data-meta="description"]');
+const navEl=document.querySelector('nav');
+let current='pl';
+let toastTimer;
+let lastFocused=null;
 
+function notify(message){
+  toast.textContent=message;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>toast.classList.remove('show'),3200);
+}
+
+function syncLock(){
+  const locked=modal.classList.contains('open')||menu.classList.contains('open');
+  document.body.classList.toggle('lock',locked);
+}
+
+function setLanguage(code){
+  current=T[code]?code:'pl';
+  document.documentElement.lang=current;
+  lang.value=current;
+  const d=T[current];
+
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.dataset.i18n;
+    if(Object.prototype.hasOwnProperty.call(d,key)) el.innerHTML=d[key];
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el=>{
+    const key=el.dataset.i18nAria;
+    if(d[key]) el.setAttribute('aria-label',d[key]);
+  });
+  document.querySelectorAll('[data-placeholder]').forEach(el=>{
+    const key=el.dataset.placeholder;
+    if(d[key]) el.placeholder=d[key];
+  });
+
+  toggle.setAttribute('aria-label', menu.classList.contains('open')?d.menuClose:d.menuOpen);
+  lang.setAttribute('aria-label', d.langLabel);
+  navEl.setAttribute('aria-label', d.navLabel);
+  document.title=d.docTitle;
+  if(metaDesc) metaDesc.setAttribute('content', d.metaDescription);
+
+  nameField.setCustomValidity('');
+  emailField.setCustomValidity('');
+  try{ localStorage.setItem('syntra-lang', current); }catch(e){}
+}
+
+function focusableIn(root){
+  return root.querySelectorAll('a[href],button:not([disabled]),textarea,input,select,[tabindex]:not([tabindex="-1"])');
+}
+
+function openModal(topic, source){
+  lastFocused=source||document.activeElement;
+  topicSelect.value=topic||'';
+  modal.classList.add('open');
+  syncLock();
+  setTimeout(()=>nameField.focus(),50);
+}
+
+function closeModal(){
+  if(!modal.classList.contains('open')) return;
+  modal.classList.remove('open');
+  syncLock();
+  if(lastFocused&&typeof lastFocused.focus==='function') lastFocused.focus();
+  lastFocused=null;
+}
+
+function closeMenu(){
+  if(!menu.classList.contains('open')) return;
+  menu.classList.remove('open');
+  toggle.setAttribute('aria-expanded','false');
+  toggle.setAttribute('aria-label',T[current].menuOpen);
+  syncLock();
+}
+
+lang.addEventListener('change',e=>setLanguage(e.target.value));
+
+document.querySelectorAll('[data-open-modal]').forEach(b=>{
+  b.addEventListener('click',()=>openModal(null,b));
+});
+
+document.querySelectorAll('[data-plan]').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const plan=b.dataset.plan;
+    openModal(null,b);
+    messageField.value = current==='ru'
+      ? 'Меня интересует пакет '+plan+'.'
+      : current==='en'
+        ? 'I am interested in the '+plan+' package.'
+        : 'Interesuje mnie pakiet '+plan+'.';
+    notify(T[current].toastChoose+plan);
+  });
+});
+
+document.querySelectorAll('[data-service]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const card=a.closest('.card');
+    const titleEl=card&&card.querySelector('h3');
+    const title=titleEl?titleEl.textContent.trim():'';
+    openModal(a.dataset.service,a);
+    notify(T[current].toastService+title);
+  });
+});
+
+document.getElementById('modalClose').addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{ if(e.target===modal) closeModal(); });
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    if(modal.classList.contains('open')) closeModal();
+    else closeMenu();
+  }
+  if(e.key==='Tab'&&modal.classList.contains('open')){
+    const items=focusableIn(dialogBox);
+    if(!items.length) return;
+    const first=items[0], last=items[items.length-1];
+    if(e.shiftKey&&document.activeElement===first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey&&document.activeElement===last){ e.preventDefault(); first.focus(); }
+  }
+});
+
+toggle.addEventListener('click',()=>{
+  const opened=menu.classList.toggle('open');
+  toggle.setAttribute('aria-expanded',String(opened));
+  toggle.setAttribute('aria-label',opened?T[current].menuClose:T[current].menuOpen);
+  syncLock();
+});
+
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  const d=T[current];
+  nameField.setCustomValidity(nameField.value.trim()? '' : d.requiredField);
+  const emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value.trim());
+  emailField.setCustomValidity(emailOk ? '' : d.invalidEmail);
+  if(!form.checkValidity()){
+    form.reportValidity();
+    return;
+  }
+  closeModal();
+  notify(d.toastSuccess);
+  form.reset();
+  nameField.setCustomValidity('');
+  emailField.setCustomValidity('');
+});
+
+// Инициализация языка
+let saved='pl';
+try{ saved=localStorage.getItem('syntra-lang')||'pl'; }catch(e){}
+if(!T[saved]) saved='pl';
+setLanguage(saved);
+})();
+</script>
+</body>
+</html>
